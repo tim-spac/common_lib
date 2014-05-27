@@ -35,3 +35,18 @@ class DictObj(dict):
             self.__class__.__name__,
             self.items(),
             )
+
+
+def dictobjtester():
+    a = DictObj(name="Tim Wang")
+    b = DictObj(mobile="13501104004")
+    a.update(b)
+    import cPickle as pickle
+    c = pickle.loads(pickle.dumps(a))
+    c.mobile = "(86)%s" % c.mobile
+    print "%r" % c
+    
+
+
+if __name__ == "__main__":
+   dictobjtester()
